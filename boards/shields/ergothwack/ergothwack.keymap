@@ -29,7 +29,7 @@
    &kp LCTRL &kp LWIN &kp LALT &kp DEL                        &kp SPACE       &kp RET              &mkp MB1 &mkp MB2 &mo 1                      &kp LEFT  &kp DOWN &kp UP   &kp RIGHT
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN &inc_dec_msc SCRL_UP SCRL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN &inc_dec_kp SCRL_UP SCRL_DN>;
         };
 		
 		function_layer {
