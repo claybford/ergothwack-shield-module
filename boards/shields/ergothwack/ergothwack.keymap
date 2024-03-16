@@ -4,11 +4,11 @@
 
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 10    // 10
 
-&msc {
+/* &msc {
     acceleration-exponent = <1>;      // 0
     time-to-max-speed-ms = <40>;      // 300
     delay-ms = <0>;                   // 0
-};
+}; */
 
 / {
     keymap {
