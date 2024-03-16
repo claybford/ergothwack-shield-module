@@ -74,7 +74,7 @@
     glidepoint: glidepoint@2a {
         compatible = "cirque,pinnacle";
         reg = <0x2a>;
-        status = "disabled";
+        status = "okay";
         dr-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH)>;
 
         sensitivity = "4x";
