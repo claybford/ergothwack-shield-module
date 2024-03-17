@@ -84,6 +84,12 @@
     };
 };
 
+&i2c0_default {
+    group1 {
+      bias-pull-up;
+    };
+};
+
 / {
   glidepoint_listener {
     compatible = "zmk,input-listener";
