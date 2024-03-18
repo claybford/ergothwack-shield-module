@@ -5,7 +5,7 @@
         zmk,underglow = &led_strip;
         zmk,kscan = &kscan0;
         zmk,matrix-transform = &default_transform;
-        zephyr,shell-uart = &cdc_acm_uart;
+        //zephyr,shell-uart = &cdc_acm_uart;
     };
 
     default_transform: keymap_transform_0 {
@@ -79,7 +79,7 @@
         status = "okay";
         dr-gpios = <&gpio1 1 (GPIO_ACTIVE_HIGH)>;
 
-        sensitivity = "4x";
+        sensitivity = "2x";
         // sleep;
         no-taps;
     };
