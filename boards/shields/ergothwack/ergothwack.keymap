@@ -13,14 +13,14 @@
 #define slow 2 //slow layer is #2
 
 &mmv {
-    acceleration-exponent = <2>;      // 1
-    time-to-max-speed-ms = <10>;     // 300
+    acceleration-exponent = <10>;      // 1
+    time-to-max-speed-ms = <1>;     // 300
     delay-ms = <0>;                   // 0
 };
 
 &msc {
-    acceleration-exponent = <2>;      // 0
-    time-to-max-speed-ms = <0>;      // 300
+    acceleration-exponent = <10>;      // 0
+    time-to-max-speed-ms = <1>;      // 300
     delay-ms = <0>;                   // 0
 };
 
@@ -122,8 +122,8 @@
    &kp ESC   &kp N1   &kp N2   &kp N3  &kp N4   &kp N5   &kp GRAVE &kp C_MUTE &rgb_ug RGB_ON  &rgb_ug RGB_EFF &mkp MB3 &mo 2  &kp N6   &kp N7   &kp N8    &kp N9   &kp N0   &kp MINUS
    &kp TAB   &kp Q    &kp W    &kp E   &kp R    &kp T    &kp HOME             &rgb_ug RGB_OFF &rgb_ug RGB_EFR                 &kp Y    &kp U    &kp I     &kp O    &kp P    &kp EQUAL
    &kp BSPC  &kp A    &kp S    &kp D   &kp F    &kp G    &kp END   &kp F11                                                    &kp H    &kp J    &kp K     &kp L    &kp SEMI &kp APOS
-   &kp LSHFT &kp Z    &kp X    &kp C   &kp V    &kp B              &kp LBKT   &rgb_ug RGB_COLOR_HSB(10,80,80)             &mkp MB4 &mkp MB5          &kp N    &kp M    &kp COMMA &kp DOT  &kp FSLH &kp BSLH
-   &kp LCTRL &kp LWIN &kp LALT &kp DEL                        &kp SPACE       &rgb_ug RGB_COLOR_HSB(350,90,90)              &mkp MB1 &mkp MB2 &mo 1                      &kp LEFT  &kp DOWN &kp UP   &kp RIGHT
+   &kp LSHFT &kp Z    &kp X    &kp C   &kp V    &kp B              &kp LBKT   &rgb_ug RGB_HUI             &mkp MB4 &mkp MB5          &kp N    &kp M    &kp COMMA &kp DOT  &kp FSLH &kp BSLH
+   &kp LCTRL &kp LWIN &kp LALT &kp DEL                        &kp SPACE       &rgb_ug RGB_HUD              &mkp MB1 &mkp MB2 &mo 1                      &kp LEFT  &kp DOWN &kp UP   &kp RIGHT
             >;
 
             sensor-bindings = <&volume_encoder &page_encoder &scroll_encoder>;
