@@ -80,17 +80,17 @@
         rgb_brightness_encoder: rgb_brightness_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+            bindings = <&rgb_ug RGB_BRD>, <&rgb_ug RGB_BRI>;
         };
         rgb_hue_encoder: rgb_hue_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&rgb_ug RGB_HUI>, <&rgb_ug RGB_HUD>;
+            bindings = <&rgb_ug RGB_HUD>, <&rgb_ug RGB_HUI>;
         };
         rgb_saturation_encoder: rgb_saturation_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&rgb_ug RGB_SAI>, <&rgb_ug RGB_SAD>;
+            bindings = <&rgb_ug RGB_SAD>, <&rgb_ug RGB_SAI>;
         };
         page_encoder: page_encoder {
             compatible = "zmk,behavior-sensor-rotate";
@@ -100,7 +100,7 @@
         volume_encoder: volume_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
+            bindings = <&kp C_VOL_DN>, <&kp C_VOL_UP>;
         };
         scroll_encoder: scroll_encoder {
             compatible = "zmk,behavior-sensor-rotate";
