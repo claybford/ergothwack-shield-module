@@ -10,7 +10,9 @@
 //doesn't do anything for glidepoint: #define ZMK_MOUSE_DEFAULT_MOVE_VAL 600
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 50    // 10
 
-#define slow 2 //slow layer is #2
+#define DEFAULT 0 //default layer is #0
+#define FUNCTION 1 //function layer is #1
+#define SLOW 2 //slow layer is #2
 
 // &mmv {
     // acceleration-exponent = <0>;      // 1
@@ -29,52 +31,44 @@
 };
 
 / {
-    // /* input config for mouse move mode on default layer (DEF & MSK) */
-    // tb0_mmv_ibl {
-        // /* new forked compatible name */
-        // compatible = "zmk,input-behavior-listener";
+    // input config for mouse move mode on target
+    tb0_mmv_ibl {
+        /* new forked compatible name */
+        compatible = "zmk,input-behavior-listener";
         
-        // /* the input point device alias */
-        // device = <&glidepoint>;
+        /* the input point device alias */
+        device = <&glidepoint>;
 
-        // /* only enable in default layer (DEF) & mouse key layer (MSK) */
-        // layers = <slow>;
+        //only enable on target layer
+        layers = <SLOW>;
 
-        // /* event code value to override raw input event */
-        // /* designed for switching to mouse scroll, xy-swap, precise-mode+, etc */
-        // evt-type = <INPUT_EV_REL>;
-        // x-input-code = <INPUT_REL_X>;
-        // y-input-code = <INPUT_REL_Y>;
-        // scale-multiplier = <1>;
-        // scale-divisor = <2>;
+        /* event code value to override raw input event */
+        /* designed for switching to mouse scroll, xy-swap, precise-mode+, etc */
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
+        scale-multiplier = <1>;
+        scale-divisor = <2>;
 
-        // /* bind a behavior to auto activate MSK layer for &mkp */
-        // bindings = <&ib_tog_layer MSK>;
-    // };
+        xy-swap;
+        y-invert;
+        x-invert;
+    };
 
-    // /* input config for mouse scroll mode on momentary mouse scoll layer (MSC) */
-    // tb0_msl_ibl {
-        // compatible = "zmk,input-behavior-listener";
-        // device = <&msc>;
-        // layers = <slow>;
-        // evt-type = <INPUT_EV_REL>;
+    /* input config for mouse scroll mode on momentary mouse scoll layer (MSC) */
+    tb0_msl_ibl {
+        compatible = "zmk,input-behavior-listener";
+        device = <&msc>;
+        layers = <SLOW>;
+        evt-type = <INPUT_EV_REL>;
         
-        // /* slienting x-axis with alt event code */
-        // x-input-code = <INPUT_REL_MISC>;
-        // y-input-code = <INPUT_REL_WHEEL>;
+        /* slienting x-axis with alt event code */
+        x-input-code = <INPUT_REL_MISC>;
+        y-input-code = <INPUT_REL_WHEEL>;
 
-        // /* slow it down, and invert scrolling direction */
-        // scale-multiplier = <1>;
-        // scale-divisor = <2>;
-        // y-invert;
-    // };
-
-    /* adjust cooldown waiting period for mouse key layer (MSK) after activated */
-/*     ib_tog_layer: ib_tog_layer {
-        compatible = "zmk,input-behavior-tog-layer";
-        #binding-cells = <1>;
-        time-to-live-ms = <0>;
-    }; */
+        scale-multiplier = <1>;
+        scale-divisor = <2>;
+    };
     
     behaviors {
         rgb_brightness_encoder: rgb_brightness_encoder {
