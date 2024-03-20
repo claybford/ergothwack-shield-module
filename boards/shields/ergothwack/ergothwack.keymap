@@ -8,7 +8,7 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 #define ZMK_MOUSE_DEFAULT_MOVE_VAL 1000000  // 600
-#define ZMK_MOUSE_DEFAULT_SCRL_VAL 1000000    // 10
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
 
 #define slow 2 //slow layer is #2
 
@@ -19,7 +19,7 @@
 };
 
 &msc {
-    acceleration-exponent = <10>;      // 0
+    acceleration-exponent = <0>;      // 0
     time-to-max-speed-ms = <1>;      // 300
     delay-ms = <0>;                   // 0
 };
@@ -106,6 +106,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            tap-ms = 100;
         };
     };
     
