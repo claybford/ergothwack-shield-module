@@ -8,7 +8,7 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 //doesn't do anything for glidepoint: #define ZMK_MOUSE_DEFAULT_MOVE_VAL 600
-#define ZMK_MOUSE_DEFAULT_SCRL_VAL 60    // 10
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 50    // 10
 
 #define slow 2 //slow layer is #2
 
