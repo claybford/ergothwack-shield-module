@@ -12,7 +12,7 @@ manifest:
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
     - name: zmk
-      remote: petejohanson #claybford
+      remote: claybford #petejohanson
       revision: feat/pointers-move-scroll
       import: app/west.yml
     - name: cirque-input-module
