@@ -7,18 +7,11 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/ext_power.h>
 
-//doesn't do anything for glidepoint: #define ZMK_MOUSE_DEFAULT_MOVE_VAL 600
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 50    // 10
 
 #define DEFAULT 0 //default layer is #0
 #define FUNCTION 1 //function layer is #1
 #define SLOW 2 //slow layer is #2
-
-// &mmv {
-    // acceleration-exponent = <0>;      // 1
-    // time-to-max-speed-ms = <0>;     // 300
-    // delay-ms = <0>;                   // 0
-// };
 
 &msc {
     acceleration-exponent = <0>;      // 0
@@ -31,45 +24,6 @@
 };
 
 / {
-    // input config for mouse move mode on target
-    tb0_mmv_ibl {
-        /* new forked compatible name */
-        compatible = "zmk,input-behavior-listener";
-        
-        /* the input point device alias */
-        device = <&glidepoint>;
-
-        //only enable on target layer
-        layers = <SLOW>;
-
-        /* event code value to override raw input event */
-        /* designed for switching to mouse scroll, xy-swap, precise-mode+, etc */
-        evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_X>;
-        y-input-code = <INPUT_REL_Y>;
-        scale-multiplier = <1>;
-        scale-divisor = <2>;
-
-        //xy-swap;
-        y-invert;
-        x-invert;
-    };
-
-    /* input config for mouse scroll mode on momentary mouse scoll layer (MSC) */
-    tb0_msl_ibl {
-        compatible = "zmk,input-behavior-listener";
-        device = <&msc>;
-        layers = <SLOW>;
-        evt-type = <INPUT_EV_REL>;
-        
-        /* slienting x-axis with alt event code */
-        x-input-code = <INPUT_REL_MISC>;
-        y-input-code = <INPUT_REL_WHEEL>;
-
-        scale-multiplier = <1>;
-        scale-divisor = <1>;
-    };
-    
     behaviors {
         rgb_brightness_encoder: rgb_brightness_encoder {
             compatible = "zmk,behavior-sensor-rotate";
@@ -102,6 +56,14 @@
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
             tap-ms = <50>;
         };
+        scale_adjuster: scale_adjuster {
+            compatible = "zmk,beh-scale-adjuster";
+            label = "SCALE_ADJUSTER";
+            #binding-cells = <2>; /* Two cells: row, column */
+            /* The properties below are placeholders. Adjust them according to your needs */
+            temp_multiplier = <1>; /* Temporary scale multiplier */
+            temp_divisor = <1>; /* Temporary scale divisor */
+        };
     };
     
     keymap {
@@ -114,7 +76,7 @@
 // |  SW24  |  SW25  |  SW26  |  SW27  |  SW28  |  SW29  |        |  TH30  |  TH38  |              |  TH22  |  TH23  |        |  SW24  |  SW25  |  SW26  |  SW27  |  SW28  |  SW29  |
 // |  SW32  |  SW33  |  SW34  |  SW35  |                 |      TH36       |  TH37  |              |  TH30  |  TH31  |  TH32  |                 |  SW33  |  SW34  |  SW35  |  SW36  |
             bindings = <
-   &kp ESC   &kp N1   &kp N2   &kp N3  &kp N4   &kp N5   &kp GRAVE &kp C_MUTE &rgb_ug RGB_ON  &rgb_ug RGB_EFF &mkp MB3 &mo 2  &kp N6   &kp N7   &kp N8    &kp N9   &kp N0   &kp MINUS
+   &kp ESC   &kp N1   &kp N2   &kp N3  &kp N4   &kp N5   &kp GRAVE &kp C_MUTE &rgb_ug RGB_ON  &rgb_ug RGB_EFF &mkp MB3 &scale_adjuster  &kp N6   &kp N7   &kp N8    &kp N9   &kp N0   &kp MINUS
    &kp TAB   &kp Q    &kp W    &kp E   &kp R    &kp T    &kp HOME             &rgb_ug RGB_OFF &rgb_ug RGB_EFR                 &kp Y    &kp U    &kp I     &kp O    &kp P    &kp EQUAL
    &kp BSPC  &kp A    &kp S    &kp D   &kp F    &kp G    &kp END   &kp F11                                                    &kp H    &kp J    &kp K     &kp L    &kp SEMI &kp APOS
    &kp LSHFT &kp Z    &kp X    &kp C   &kp V    &kp B              &kp LBKT   &kp RBKT             &mkp MB4 &mkp MB5          &kp N    &kp M    &kp COMMA &kp DOT  &kp FSLH &kp BSLH
