@@ -9,10 +9,6 @@
 
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 50    // 10
 
-#define DEFAULT 0 //default layer is #0
-#define FUNCTION 1 //function layer is #1
-#define SLOW 2 //slow layer is #2
-
 &msc {
     acceleration-exponent = <0>;      // 0
     time-to-max-speed-ms = <0>;      // 300
@@ -93,30 +89,13 @@
 // |  SW32  |  SW33  |  SW34  |  SW35  |                 |      TH36       |  TH37  |              |  TH30  |  TH31  |  TH32  |                 |  SW33  |  SW34  |  SW35  |  SW36  |
             bindings = <
    &none    &kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &none    &none    &rgb_ug RGB_SPI         &bt BT_NXT &none  &none    &kp F6   &kp F7   &kp F8   &kp F9   &kp F10  &kp BSPC
-   &none    &none    &none    &none    &none    &none    &none             &rgb_ug RGB_SPD         &bt BT_PRV                 &none    &none    &none    &none    &none    &kp RET
-   &none    &kp LC(A) &none   &none    &kp LC(F) &none   &none    &kp F12                                                     &none    &none    &none    &none    &none    &none
+   &none    &none    &none    &none    &none    &none    &bt BT_CLR        &rgb_ug RGB_SPD         &bt BT_PRV                 &none    &none    &none    &none    &none    &kp RET
+   &none    &kp LC(A) &none   &none    &kp LC(F) &none   &bt BT_CLR_ALL &kp F12                                               &none    &none    &none    &none    &none    &none
    &none    &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &none         &none    &none                   &kp LC(Z) &kp LS(LC(Z))    &none    &none    &none    &none    &none    &none
    &none    &none    &none    &none                            &none       &none                   &none    &none    &trans                     &none    &none    &none    &none
             >;
 
             sensor-bindings = <&rgb_brightness_encoder &rgb_saturation_encoder &rgb_hue_encoder>;
-        };
-        
-        slow_layer {
-// |  SW0   |  SW1   |  SW2   |  SW3   |  SW4   |  SW5   |  SW6   |  RE7   |  TS15  |              |  TS8   |  RE0   |  SW1   |  SW2   |  SW3   |  SW4   |  SW5   |  SW6   |  SW7   |
-// |  SW8   |  SW9   |  SW10  |  SW11  |  SW12  |  SW13  |  SW14  |        |  TS23  |              |  TS15  |                 |  SW9   |  SW10  |  SW11  |  SW12  |  SW13  |  SW14  |
-// |  SW16  |  SW17  |  SW18  |  SW19  |  SW20  |  SW21  |  SW22  |  RE31  |                                                  |  SW16  |  SW17  |  SW18  |  SW19  |  SW20  |  SW21  |
-// |  SW24  |  SW25  |  SW26  |  SW27  |  SW28  |  SW29  |        |  TH30  |  TH38  |              |  TH22  |  TH23  |        |  SW24  |  SW25  |  SW26  |  SW27  |  SW28  |  SW29  |
-// |  SW32  |  SW33  |  SW34  |  SW35  |                 |      TH36       |  TH37  |              |  TH30  |  TH31  |  TH32  |                 |  SW33  |  SW34  |  SW35  |  SW36  |
-            bindings = <
-   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans                  &bt BT_CLR &trans &trans   &trans   &trans   &trans   &trans   &trans   &trans
-   &trans   &trans   &trans   &trans   &trans   &trans   &trans            &trans                  &bt BT_CLR_ALL             &trans   &trans   &trans   &trans   &trans   &trans
-   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans                                                      &trans   &trans   &trans   &trans   &trans   &trans
-   &trans   &trans   &trans   &trans   &trans   &trans            &trans   &trans                  &trans   &trans            &trans   &trans   &trans   &trans   &trans   &trans
-   &trans   &trans   &trans   &trans                           &trans      &trans                  &trans   &trans   &trans                     &trans   &msc SCRL_DOWN   &msc SCRL_UP   &trans
-            >;
-
-            sensor-bindings = <&volume_encoder &page_encoder &scroll_encoder>;
         };
     };
 };
