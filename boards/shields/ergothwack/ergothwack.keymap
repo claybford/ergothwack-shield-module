@@ -54,7 +54,6 @@
         };
         scale_adj: scale_adj {
             compatible = "zmk,beh-scale-adjuster";
-            label = "SCALE_ADJUSTER";
             #binding-cells = <0>;
             temp_multiplier = <1>; /* Temporary scale multiplier */
             temp_divisor = <1>; /* Temporary scale divisor */
