@@ -50,7 +50,7 @@
         scale-multiplier = <1>;
         scale-divisor = <2>;
 
-        xy-swap;
+        //xy-swap;
         y-invert;
         x-invert;
     };
@@ -67,7 +67,7 @@
         y-input-code = <INPUT_REL_WHEEL>;
 
         scale-multiplier = <1>;
-        scale-divisor = <2>;
+        scale-divisor = <1>;
     };
     
     behaviors {
