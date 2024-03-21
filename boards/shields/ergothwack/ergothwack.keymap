@@ -53,7 +53,7 @@
             tap-ms = <50>;
         };
         scale_adj: scale_adj {
-            compatible = "zmk,beh-scale-adjuster";
+            compatible = "zmk,behavior-scale-adjuster";
             #binding-cells = <0>;
             temp_multiplier = <1>; /* Temporary scale multiplier */
             temp_divisor = <1>; /* Temporary scale divisor */
