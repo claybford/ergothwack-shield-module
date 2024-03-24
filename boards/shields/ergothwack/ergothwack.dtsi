@@ -93,7 +93,7 @@
     xy-swap;
     y-invert;
     x-invert;
-    scale-multiplier = <23>;
-    scale-divisor = <8>;
+    scale-multiplier = <1>;
+    scale-divisor = <1>;
   };
 };

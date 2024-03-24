@@ -55,7 +55,7 @@
         scale_adj: scale_adj {
             compatible = "zmk,behavior-scale-adjuster";
             #binding-cells = <0>;
-            temp_multiplier = <1>; /* Temporary scale multiplier */
+            temp_multiplier = <3>; /* Temporary scale multiplier */
             temp_divisor = <1>; /* Temporary scale divisor */
         };
     };
